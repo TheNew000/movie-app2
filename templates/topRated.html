@@ -1,0 +1,7 @@
+<div class="page" ng-controller="topRatedController">
+    <div class="row">
+        <div ng-repeat="movie in movieArray" class="col-sm-3 movie-poster">
+           <a href="#myModal"><img ng-src="{{imagePath}}{{movie.poster_path}}"></a><div ng-repeat="(key, value) in movie.genre_ids">{{value}}</div>
+        </div>
+    </div>
+</div>

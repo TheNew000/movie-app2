@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- We give our app a name so angular can take over -->
+<html ng-app="navRoutes">
+<head>
+    <title></title>
+    <style type="text/css">
+        .page {
+            margin-top:  50px;
+            background-color: red;
+        }
+
+        .slide-animate.ng-enter, .slide-animate.ng-leave{
+            transition:  all linear 5s;
+        }
+
+        .slide-animate.ng-enter.ng-enter-active{
+            position: absolute;
+            left: 1000px;
+        }
+        .slide-animate.ng-enter{
+            left: 0;
+        }
+    </style>
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Include jQuery for bootstrap-->
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <!-- Bootstrap's javascript/jQuery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Include angular -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <!-- Include route module to enable ng-view -->
+    <script src="https://code.angularjs.org/1.5.8/angular-route.min.js" type="text/javascript"></script>
+    <!-- Include animation module -->
+    <script src="https://code.angularjs.org/1.5.8/angular-animate.min.js" type="text/javascript"></script>
+    <!-- Include our custom JS script does all the app work-->
+    <script src="js/navModule.js" type="text/javascript"></script>
+    <!-- Controller specific to the nowPlaying view -->
+    <script src="js/nowPlaying-controller.js" type="text/javascript"></script>
+    <!-- Controller specific to the popular view -->
+    <script src="js/popular-controller.js" type="text/javascript"></script>
+    <!-- Controller specific to the topRated view -->
+    <script src="js/topRated-controller.js" type="text/javascript"></script>
+    <!-- Controller Specific to the upcoming view-->
+    <script src="js/upComing-controller.js" type="text/javascript"></script>
+
+</head>
+<body ng-controller="navController">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#theMenu">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">Admin Page</a>
+            <div class="collapse navbar-collapse" id="theMenu">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/nowPlaying">Now Playing</a>
+                    </li>
+                    <li>
+                        <a href="#/popular">Popular</a>
+                    </li>
+                    <li>
+                        <a href="#/topRated">Top Rated</a>
+                    </li>
+                    <li>
+                        <a href="#/upComing">upComing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Only one veiw per page -->
+    <div class="page slide-animate" ng-view="">
+            
+        </div>
+    </div>
+
+
+
+</body>
+</html>
